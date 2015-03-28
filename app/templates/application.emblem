@@ -1,3 +1,7 @@
-h1 This is a test.  This is only a test
+nav.top-bar data-topbar="data-topbar" role="navigation"
+  ul.title-area
+    li.name
+      h1
+        a href="#" SPIDACalc 10
 
 = outlet
