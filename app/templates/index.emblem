@@ -1,7 +1,32 @@
-.progress
-  span.meter style={progressWidth}
-p Progress {{progress}}
+if readyToAnalyse
+  .row
+    .small-6.columns = progressMessage
+    .small-6.text-right.columns {{progress}}% Complete
+  .row
+    .small-12.columns
+      .progress
+        span.meter style={progressWidth}
+  .row
+    .small-4.columns
+      button{action 'analyse'} class="isAnalysing:disabled" disabled=isAnalysing Analyse
+    .small-8.end.columns
+      if showFaster
+        button.right{action 'faster'} = fasterLabel
 
-button.tiny-button{action 'analyse'} class="isAnalysing:disabled" disabled=isAnalysing Analyse
-if showFaster
-  button.tiny-button{action 'faster'} = fasterLabel
+if analysisDone
+  .row
+    .small-12.columns
+      h1.text-center  Your pole failed and is sad.
+  .row
+    .small-12.text-center
+      if showingSlider
+        #slider.range-slider.round data-slider="data-slider" data-options='start: 0; end: 100;'
+          span.range-slider-handle role="slider" tabindex="0"
+          span.range-slider-active-segment
+          input type="hidden"
+      else
+        h2
+          a{action 'showSlider'} I don't like this
+  .row
+    .small-12.small-centered.columns
+      img src=resultImage

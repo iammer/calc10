@@ -4,4 +4,6 @@ nav.top-bar data-topbar="data-topbar" role="navigation"
       h1
         a href="#" SPIDACalc 10
 
-= outlet
+.row
+  .small-8.small-offset-2.end.columns
+    = outlet
