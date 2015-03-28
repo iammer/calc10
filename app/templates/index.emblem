@@ -1,1 +1,7 @@
-p Test
+.progress
+  span.meter style={progressWidth}
+p Progress {{progress}}
+
+button.tiny-button{action 'analyse'} class="isAnalysing:disabled" disabled=isAnalysing Analyse
+if showFaster
+  button.tiny-button{action 'faster'} = fasterLabel
