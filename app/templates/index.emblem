@@ -16,14 +16,16 @@ if readyToAnalyse
 if analysisDone
   .row
     .small-12.columns
-      h1.text-center  Your pole failed and is sad.
+      h1.text-center  = resultMessage
   .row
     .small-12.text-center
       if showingSlider
-        #slider.range-slider.round data-slider="data-slider" data-options='start: 0; end: 100;'
-          span.range-slider-handle role="slider" tabindex="0"
-          span.range-slider-active-segment
-          input type="hidden"
+        .row
+          .small-6.columns.text-left More Accurate
+          .small-6.columns.text-right More Happy
+        .row
+          .small-12.columns
+            x-slider min=0 max=100 step=1 value=sliderPosition
       else
         h2
           a{action 'showSlider'} I don't like this
