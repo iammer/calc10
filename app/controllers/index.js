@@ -1,15 +1,18 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
+export default Ember.ObjectController.extend(Ember.Evented).extend({
     progress: 0,
-    interval: 50,
+    interval: 250,
     isAnalysing: false,
-    pictureUploaded: true,
+    pictureUploaded: false,
     showingSlider: false,
     evens: 0,
     sliderPosition: 0,
+    showSamples: false,
+    image: null,
 
     messages: [
+        ["Click Analyse to begin.",1],
         ["Scanning...", 2],
         ["Identifing...",2],
         ["Counting termities...",5],
@@ -27,7 +30,7 @@ export default Ember.ObjectController.extend({
         ["Doing seventh-order bending...",1],
         ["Doing eigth-order bending...",1],
         ["Reversing polarity...",10],
-        ["Jiggling wires...",10],
+        ["Jiggling wires...",9],
         ["Doing ninth-order bending...",1],
         ["Closing reclosures...",7],
         ["Reclosing closures...",7]
@@ -81,6 +84,7 @@ export default Ember.ObjectController.extend({
             var progress=this.get('progress');
             if (progress < 100) {
                 this.set('progress',progress+1);
+                this.trigger('step');
                 this.step();
             } else {
                 this.set('isAnalysing',false);
@@ -90,7 +94,7 @@ export default Ember.ObjectController.extend({
     },
 
     showFaster: function() {
-        return this.get('isAnalysing') && this.get('progress') > 10;
+        return this.get('isAnalysing') && this.get('progress') > 5;
     }.property('progress','isAnalysing'),
 
     fasterLabel: function() {
@@ -122,6 +126,16 @@ export default Ember.ObjectController.extend({
 
         showSlider: function() {
             this.set('showingSlider',true);
+        },
+
+        showSamples: function() {
+            this.set('showSamples',true);
+        },
+
+        imageDropped: function(image) {
+            this.set('pictureUploaded',true);
+            this.set('image',image);
+            this.trigger('showImage',image);
         }
     }
 });

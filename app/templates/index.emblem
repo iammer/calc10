@@ -1,18 +1,3 @@
-if readyToAnalyse
-  .row
-    .small-6.columns = progressMessage
-    .small-6.text-right.columns {{progress}}% Complete
-  .row
-    .small-12.columns
-      .progress
-        span.meter style={progressWidth}
-  .row
-    .small-4.columns
-      button{action 'analyse'} class="isAnalysing:disabled" disabled=isAnalysing Analyse
-    .small-8.end.columns
-      if showFaster
-        button.right{action 'faster'} = fasterLabel
-
 if analysisDone
   .row
     .small-12.columns
@@ -21,6 +6,9 @@ if analysisDone
     .small-12.text-center
       if showingSlider
         .row
+          .small-12
+            h4 Use the slider below to adjust results
+        .row
           .small-6.columns.text-left More Accurate
           .small-6.columns.text-right More Happy
         .row
@@ -28,7 +16,54 @@ if analysisDone
             x-slider min=0 max=100 step=1 value=sliderPosition
       else
         h2
-          a{action 'showSlider'} I don't like this
+          a{action 'showSlider'} Don't like this? Click here
   .row
     .small-12.small-centered.columns
       img src=resultImage
+  .row
+    .small-12.text-center.columns
+      h4
+        a href="/" Analyse another pole
+
+else
+  if pictureUploaded
+    .row
+      .small-12.small-centered.columns
+       = view 'pole-canvas'
+    .row
+      .small-6.columns = progressMessage
+      .small-6.text-right.columns {{progress}}% Complete
+    .row
+      .small-12.columns
+        .progress
+          span.meter style={progressWidth}
+    .row
+      .small-4.columns
+        button{action 'analyse'} class="isAnalysing:disabled" disabled=isAnalysing Analyse
+      .small-8.end.columns
+        if showFaster
+          button.right{action 'faster'} = fasterLabel
+  else
+    .row
+      .small-12.small-centered.text-center.columns
+        = view 'drop-target'
+          h4 Drop a picture of pole here to analyse
+    if showSamples
+      .row
+        .small-12.columns.text-center
+          h4 Here, use one of these:
+      .row
+        .small-3.columns
+          img src='sample1.jpg'
+        .small-3.columns
+          img src='sample2.jpg'
+        .small-3.columns
+          img src='sample3.jpg'
+        .small-3.columns
+          img src='sample4.jpg'
+    else
+      .row
+        .small-12.text-center.columns
+          h4
+            a{action 'showSamples'} Don't have a picture of a pole? Click here
+
