@@ -40,7 +40,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-* ember build
+* `ember build`
 * copy contents of dist directory to the root of your webserver
 
 
