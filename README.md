@@ -1,7 +1,6 @@
 # Calc10
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+SPIDA Software, an industry leader in structure analysis software, announces the release of SPIDACalc v10.0. This release is a revolutionary online cloud analysis tool that gives you the answers you want and at the speed you need.
 
 ## Prerequisites
 
