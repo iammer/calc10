@@ -13,7 +13,7 @@ export default Ember.View.extend({
         Ember.run.scheduleOnce('afterRender',this,this.initCanvas);
 
         this.get('controller').on('step',this,function() {
-            if (Math.random() < 0.3) {
+            if (Math.random() < 0.6) {
                 var ctx=this.get('ctx');
 
                 var x = this.randomInt(200);

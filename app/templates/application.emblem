@@ -3,6 +3,8 @@ nav.top-bar data-topbar="data-topbar" role="navigation"
     li.name
       h1
         a href="#" SPIDACalc 10
+  section.left-small
+      img src='/logo.png' width='40' height='40'
 
 .row
   .small-12.columns

@@ -27,6 +27,10 @@ canvas {
     width: 200px;
 }
 
+li.name a {
+  margin-left: 45px;
+}
+
 input[type=range] {
   -webkit-appearance: none;
   width: 100%;

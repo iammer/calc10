@@ -22,8 +22,11 @@ if analysisDone
       img src=resultImage
   .row
     .small-12.text-center.columns
+      h3 Happy April 1st!!
+  .row
+    .small-12.text-center.columns
       h4
-        a href="/" Analyse another pole
+        a href="/" Analyze another pole
 
 else
   if pictureUploaded
@@ -39,7 +42,7 @@ else
           span.meter style={progressWidth}
     .row
       .small-4.columns
-        button{action 'analyse'} class="isAnalysing:disabled" disabled=isAnalysing Analyse
+        button{action 'analyse'} class="isAnalysing:disabled" disabled=isAnalysing Analyze
       .small-8.end.columns
         if showFaster
           button.right{action 'faster'} = fasterLabel
@@ -47,7 +50,7 @@ else
     .row
       .small-12.small-centered.text-center.columns
         = view 'drop-target'
-          h4 Drop a picture of pole here to analyse
+          h4 Drop a picture of pole here to analyze
     if showSamples
       .row
         .small-12.columns.text-center

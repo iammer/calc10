@@ -20,7 +20,7 @@ export default Ember.View.extend({
                 });
                 fr.readAsDataURL(e.dataTransfer.files[0]);
             } else {
-                image.src=window.$(e.dataTransfer.getData('text/html')).attr('src');
+                image.src=window.$(e.dataTransfer.getData('text/html')).filter('img').attr('src');
                 this.get('controller').send('imageDropped',image);
             }
         } catch (ex) {

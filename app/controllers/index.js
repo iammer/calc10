@@ -12,10 +12,10 @@ export default Ember.ObjectController.extend(Ember.Evented).extend({
     image: null,
 
     messages: [
-        ["Click Analyse to begin.",1],
+        ["Click Analyze to begin.",1],
         ["Scanning...", 2],
         ["Identifing...",2],
-        ["Counting termities...",5],
+        ["Counting carpenter ants...",5],
         ["Feeding catenary...",7],
         ["Performing linear analysis...",5],
         ["Performing non-linear analysis...",5],
@@ -104,7 +104,7 @@ export default Ember.ObjectController.extend(Ember.Evented).extend({
             label += 'Even ';
         }
 
-        return 'Analyse ' + label + 'Faster';
+        return 'Analyze ' + label + 'Faster';
     }.property('evens'),
 
     progressWidth: function() {
